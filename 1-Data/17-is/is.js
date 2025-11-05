@@ -1,15 +1,11 @@
 const is = {
    num(arg)
    {
-        if(typeof arg == "number")
-            return true;
-        return false;
+        return typeof arg === "number" && !isNaN(arg);
    },
    nan(arg)
    {
-        if (arg === arg)
-            return false;
-        return true;            
+        return typeof arg === "number" && isNaN(arg);            
    },
    str(arg)
    {
@@ -23,9 +19,9 @@ const is = {
             return true;
         return false;  
    },
-   undef()
+   undef(arg)
    {
-        if (typeof arg == "undefined")
+        if (arg === undefined)
             return true;
         return false;  
    },
@@ -43,9 +39,7 @@ const is = {
    },
    obj(arg)
    {
-        if (typeof arg == "object")
-            return true;
-        return false; 
+        return arg !== null && typeof arg === "object" && !Array.isArray(arg); 
    },
    fun(arg)
    {
@@ -69,9 +63,19 @@ const is = {
 
 let x;
 let y = 9;
-console.log(is.num(10));
-console.log(is.nan(NaN));
-console.log(is.str("hello"));
-console.log(is.bool(true));
-console.log(is.undef(x));
-console.log(is.undef(y));
+let myarray = [1337, "42", "mtaleb", undefined];
+
+// console.log(is.num(10));
+// console.log(is.nan(NaN));
+// console.log(is.str("hello"));
+// console.log(is.bool(true));
+// console.log(is.undef(x));
+// console.log(is.def(y));
+// console.log(is.arr(myarray));
+// console.log(is.fun(is.arr));
+// console.log(is.truthy(true));
+// console.log(is.truthy({}));
+// console.log(is.truthy(Infinity));
+// console.log(is.falsy(""));
+// console.log(is.falsy(-0));
+// console.log(is.falsy(NaN));
