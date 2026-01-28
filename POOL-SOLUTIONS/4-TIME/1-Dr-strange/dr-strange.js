@@ -17,9 +17,9 @@ function timeTravel(dateObj)
    return dateObj.date;
 }
 
-console.log(addWeek(new Date('0001-01-01')));
-let travelObj = 
-        { date: new Date('2020-05-29 23:25:22'),
-        hour: 21, minute: 22, second: 22};
+// console.log(addWeek(new Date('0001-01-01')));
+// let travelObj = 
+//         { date: new Date('2020-05-29 23:25:22'),
+//         hour: 21, minute: 22, second: 22};
 
-console.log(timeTravel(travelObj).toString());
+// console.log(timeTravel(travelObj).toString());
