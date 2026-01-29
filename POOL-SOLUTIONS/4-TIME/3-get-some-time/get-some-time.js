@@ -3,7 +3,7 @@ function formatDate(date)
     const sDate = `${date.getDate()}`;
     const sMonth = `${date.getMonth()+1}`;
     const sYear = `${date.getFullYear()}`;
-    return  sDate.padStart(2, '0') + '-' + sMonth.padStart(2, '0') + '-' + sYear;
+    return  sDate.padStart(2, '0') + '-' + sMonth.padStart(2, '0') + '-' + sYear.padStart(4, '0');
 }
 
 function firstDayWeek(week, year) 
