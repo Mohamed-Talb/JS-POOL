@@ -1,10 +1,10 @@
-function adder(Arr)
-{
-    const sumV = Arr.reduce((accumulator, currentValue) => accumulator + currentValue)
+function adder(Arr, initAcc = 0)
+{   
+    const sumV = Arr.reduce((accumulator, currentValue) => accumulator + currentValue, initAcc)
     return sumV;
 }
 
-function sumOrMul(Arr, initV)
+function sumOrMul(Arr, initV = 0)
 {
     const reducer = (accumulator, currentValue) =>
     {
@@ -18,20 +18,9 @@ function sumOrMul(Arr, initV)
     return retV;
 }
 
-function funcExec(Arr)
+function funcExec(Arr, initAcc = 0)
 {
     const reducer = (accumulator, apply) => apply(accumulator)
-    const retV = Arr.reduce(reducer, 8);
+    const retV = Arr.reduce(reducer, initAcc);
     return retV;
 }
-
-const pipeline = [
-  (x) => x + 1,
-  (x) => x * 2,
-  (x) => x / 3
-];
-
-const array = [1, 2, 3, 4];
-console.log(adder(array))
-console.log(sumOrMul([1, 2, 3, 5, 8], 5)) // (((((5 + 1) * 2) + 3) + 5) * 8) -> 160
-console.log(funcExec(pipeline)) // 6

@@ -17,27 +17,22 @@ function foldRight(Arr, func, Accumulator)
     return Accumulator;
 }
 
-function reduce(Arr, func, initValue)
+function reduce(arr, func) 
 {
-    if (!Array.isArray(Arr) || typeof func !== "function" || Arr.length < 1)
+    if (!Array.isArray(arr) || typeof func !== "function")
         throw new Error("Invalid reduce Arguments");
-    Accumulator = initValue;
-    if (initValue == undefined)
-        Accumulator = Arr[0];
-    for (const item of Arr)
-        Accumulator = func(Accumulator, item);
-    return Accumulator;
+    if (arr.length < 1)
+        throw new Error("Reduce of empty array");
+    let accumulator = arr[0];
+    for (let i = 1; i < arr.length; i++)
+    {
+        accumulator = func(accumulator, arr[i], i, arr);
+    }
+
+  return accumulator;
 }
 
-function reduce(Arr, func)
-{
-    if (!Array.isArray(Arr) || typeof func !== "function" || Arr.length < 1)
-        throw new Error("Invalid reduce Arguments");
-    let acc = Arr[0];
-    for (const item of Arr)
-        acc = func(acc, item);
-    return acc;
-}
+
 
 function reduceRight(Arr, func)
 {
@@ -49,15 +44,3 @@ function reduceRight(Arr, func)
     return acc;
 }
 
-
-const adder = (a, b) => a + b;
-
-try {
-    console.log(fold([1,2,3], adder, 2));        // -> 8
-    console.log(foldRight([1,2,3], adder, 2));   // -> 8
-    console.log(reduce([1,2,3], adder));         // -> 6
-    console.log(reduceRight([1,2,3], adder));    // -> 6
-} catch(err)
-{
-    console.log(err.message);
-}

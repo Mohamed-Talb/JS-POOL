@@ -1,7 +1,10 @@
 
-function forEach(Arr, func)
+function forEach(arr, callback) 
 {
-    Arr.forEach(func);
+    for (let i = 0; i < arr.length; i++) 
+    {
+        callback(arr[i], i, arr);
+    }
 }
 
 const ratings = [5, 4, 5];

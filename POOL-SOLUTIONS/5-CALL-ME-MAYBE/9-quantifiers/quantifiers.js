@@ -33,20 +33,3 @@ function none(Arr, func)
     }
     return none;
 }
-
-const arr = [2, 6, 4];
-const arr1 = [2, 5, 4, 3];
-
-const func = x => x % 2 == 0;
-
-console.log(every(arr, func));
-console.log(every(arr1, func));
-
-console.log(some(arr1, func));
-console.log(some([3,5,7], func));
-
-console.log(none(arr1, func));
-console.log(none([3,5,7], func));
-
-// console.log([].every(func));
-// console.log([].some(func));

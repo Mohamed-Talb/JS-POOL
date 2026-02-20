@@ -11,7 +11,3 @@ function hasCity(country, Arr)
         return `${city} is not a city from ${country}`
     }
 }
-
-const country = ["Tetouan", "Tanger", "Chefchaoun", "Houcima"];
-console.log(hasCity("Chamal", country)("Tanger"));
-console.log(hasCity("Chamal", country)("Meknas"));
