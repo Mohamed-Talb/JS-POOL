@@ -1,3 +1,4 @@
+
 function debounce(func, delay)
 {
 	let timeOut;
@@ -9,20 +10,30 @@ function debounce(func, delay)
 
 }
 
-
-function saveData(data) {
-  console.log("Saving:", data);
+function opDebounce(fn, wait, options = {}) 
+{
+    let timeout, lastCallTime = 0;
+    return function(...args) 
+	{
+        return new Promise(resolve =>
+		{
+            const now = Date.now();
+            const callLeading = options.leading && now - lastCallTime > wait;
+            if (timeout) clearTimeout(timeout);
+            if (callLeading)
+			{
+                lastCallTime = now;
+                resolve(fn(...args));
+            }
+			else
+			{
+                timeout = setTimeout(() =>
+				{
+                    lastCallTime = Date.now();
+                    if (!options.leading) 
+						resolve(fn(...args));
+                }, wait);
+            }
+        });
+    };
 }
-
-const debouncedSave = debounce(saveData, 1);
-
-// Simulate rapid calls
-debouncedSave("A");
-debouncedSave("AB");
-debouncedSave("ABC");
-debouncedSave("ABCD");
-
-// saveData("A");
-// saveData("AB");
-// saveData("ABC");
-// saveData("ABCD");

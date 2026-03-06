@@ -1,0 +1,4 @@
+function throttle(func, delay)
+{
+	
+}

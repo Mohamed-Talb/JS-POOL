@@ -7,6 +7,7 @@ Create a function named `interpolation` that takes an object with 5 properties: 
 This function must interpolate points from the `start` position to the `end` position (not including the `end` position). The number of points depends on the number of steps.
 
 For each interpolation point, you must call the `callback` function with an array of the two points `[x, y]`:
+
 - `x`: distance
 - `y`: point
 
@@ -42,4 +43,4 @@ duration = 10
 
 ### Notions
 
-- [setTimeout & setInterval](https://javascript.info/settimeout-setinterval)
+- [setTimeout &amp; setInterval](https://javascript.info/settimeout-setinterval)
