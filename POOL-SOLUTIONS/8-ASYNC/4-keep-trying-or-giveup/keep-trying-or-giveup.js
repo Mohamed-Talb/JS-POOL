@@ -35,5 +35,3 @@ function timeout(delay, callback)
     	}
   };
 }
-
-// console.log(timeout(1000, func)());
