@@ -17,32 +17,23 @@ function retry(count, callback)
 	}
 }
 
-
-async function func()
-{
-	function fetchData()
-	{
-		return new Promise(reject => 
-		{
-			setTimeout(()=> reject("faild"), 2000);
-		})
-	}
-	const result = await fetchData();
-	return result;
-}
-
-
-
-
-
 function timeout(delay, callback) 
 {
-	return function invoke(...args)
+	return async function (...args)
 	{
-		const timeoutPromise = new Promise((_, reject) => {setTimeout(() => reject(new Error("timeout")), delay);});
-		const callbackPromise = callback(...args);
-		return Promise.race([timeoutPromise, callbackPromise]).catch(err => err);
-	};
+    	try 
+		{
+			function delayTask(_, reject)
+			{
+				setTimeout(() => reject(new Error('timeout')), delay)
+			};
+			return await Promise.race([callback(...args),new Promise(delayTask)]);
+    	} 
+		catch (err) 
+		{
+      		return err;
+    	}
+  };
 }
 
-console.log(timeout(1000, func)());
+// console.log(timeout(1000, func)());
