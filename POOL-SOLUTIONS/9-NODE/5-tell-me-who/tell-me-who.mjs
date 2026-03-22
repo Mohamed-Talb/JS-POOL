@@ -27,6 +27,6 @@ function printList(List)
 let path = process.argv[2];
 if (path === undefined)
 	path = './';
-let namesList = fs.readdirSync(path).map(getFullname);
-namesList = namesList.sort(compareTwoStrings);
-printList(namesList);
+let guestsList = fs.readdirSync(path).map(getFullname);
+guestsList = guestsList.sort(compareTwoStrings);
+printList(guestsList);
