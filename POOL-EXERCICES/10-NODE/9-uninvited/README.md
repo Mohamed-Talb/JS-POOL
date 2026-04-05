@@ -18,7 +18,7 @@ Here below are your program/server's expected behaviors:
 - For each http `POST` request, your program should create the corresponding JSON file and store the contents of the body, and then provide the content as JSON in the HTTP response, if possible. If the file already exists, it should replace it.
 - If for any reason the server fails, the response should be an object with a key `error` and its value `server failed`.
 
-### Example
+Example
 
 To test your program, you should be able to expect the following behaviour once your program is up and running.
 
