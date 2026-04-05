@@ -44,11 +44,11 @@ The TESTER validates your SOLUTIONS automatically. It supports both STANDARD JS 
 * NPM
 * CHROMIUM dependencies (handled automatically by PUPPETEER)
 
-#### **INSTALLATION**
+#### **PUPPETEER**
+Install Puppeteer to enable DOM-based tests:
 
 ```bash
-git clone https://github.com/01-edu/public.git
-cd public/js/tests
+cd TESTS
 npm install puppeteer
 ```
 
@@ -57,6 +57,7 @@ npm install puppeteer
 Standard usage:
 
 ```bash
+cd TESTS
 node test.mjs <solution-path> <exercise-name>
 ```
 
